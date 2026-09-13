@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J'Me Graphix | 1Cr Digital Architecture</title>
+  
+  <!-- Fontshare: Clash Display & Satoshi -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  
+  <!-- WebGL Background Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Noise Overlay for Cinematic Texture -->
+  <div class="noise-overlay"></div>
+  
+  <!-- Magnetic Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Lenis Smooth Scroll Wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- Navigation -->
+      <nav class="elite-nav mix-blend">
+        <div class="logo-wrapper magnetic">
+          <img src="./logo.png" alt="J'Me Graphix" class="logo-icon" />
+          <div class="logo-text">J'ME<br>GRAPHIX</div>
+        </div>
+        <div class="nav-menu">
+          <a href="#expertise" class="nav-link hover-underline">Expertise</a>
+          <a href="#manifesto" class="nav-link hover-underline">Manifesto</a>
+          <a href="#access" class="btn-elite magnetic">Request Access</a>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="hero-inner mix-blend">
+          <h1 class="hero-display">
+            <div class="mask-line"><span class="reveal-text">SHAPING</span></div>
+            <div class="mask-line"><span class="reveal-text text-glass">DIGITAL</span></div>
+            <div class="mask-line"><span class="reveal-text">FUTURES.</span></div>
+          </h1>
+          <p class="hero-sub gs-fade-up">Award-winning engineering & design.</p>
+        </div>
+      </section>
+
+      <!-- Expertise (Bento Grid) -->
+      <section class="expertise" id="expertise">
+        <h2 class="section-title gs-fade-up">OUR EXPERTISE</h2>
+        
+        <div class="bento-grid">
+          <!-- Item 1: Large -->
+          <div class="bento-card bento-lg gs-scale-up">
+            <div class="bento-glow color-green"></div>
+            <div class="bento-content">
+              <h3>Brand Architecture</h3>
+              <p>Striking visual identities crafted to dominate markets. We don't just design; we engineer brand perception.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="bento-card bento-sm gs-scale-up">
+            <div class="bento-glow color-orange"></div>
+            <div class="bento-content">
+              <h3>Growth Marketing</h3>
+              <p>Algorithmic dominance through hyper-targeted digital campaigns.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="bento-card bento-sm gs-scale-up">
+            <div class="bento-glow color-blue"></div>
+            <div class="bento-content">
+              <h3>Software Systems</h3>
+              <p>Scalable, 1Cr-tier web applications built for speed and perfection.</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Wide -->
+          <div class="bento-card bento-wide gs-scale-up">
+            <div class="bento-glow color-gradient"></div>
+            <div class="bento-content">
+              <h3>AI Incubation Labs</h3>
+              <p>Empowering minds with bleeding-edge Generative AI and prompt engineering workshops.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Manifesto -->
+      <section class="manifesto" id="manifesto">
+        <div class="manifesto-content gs-fade-up">
+          <p class="manifesto-statement">"We do not build websites. We engineer digital gravity. We pull your audience in with unparalleled aesthetics and flawless mathematics."</p>
+          <div class="founder-sig">
+            <span class="name">Rehaman Shaik</span>
+            <span class="title">Founder & Chief Architect</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Access Terminal (Auth & Contact) -->
+      <section class="access-terminal" id="access">
+        <div class="terminal-box gs-fade-up glass-panel">
+          <h2 class="terminal-title">SECURE GATEWAY</h2>
+          <p class="terminal-sub">Identify yourself to proceed.</p>
+
+          <div id="auth-flow">
+            <!-- Google Auth -->
+            <button id="google-auth-btn" class="btn-google magnetic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.16v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.16C1.43 8.55 1 10.22 1 12s.43 3.45 1.16 4.93l2.85-2.22.83-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.16 7.07l3.68 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              Authenticate via Google
+            </button>
+            
+            <div class="divider"><span>OR</span></div>
+
+            <!-- Email / Password Forms Wrapper -->
+            <div id="email-auth-wrapper">
+              
+              <!-- Sign In Form -->
+              <div id="signin-form">
+                <div class="input-wrapper">
+                  <input type="email" id="signin-email" placeholder="Email Address" />
+                  <span class="focus-border"></span>
+                </div>
+                <div class="input-wrapper">
+                  <input type="password" id="signin-password" placeholder="Password" />
+                  <span class="focus-border"></span>
+                </div>
+                <button id="signin-btn" class="btn-elite magnetic" style="width: 100%; margin-top: 1rem;">Sign In</button>
+                <p class="auth-toggle-text">Don't have an account? <span id="toggle-to-signup" class="toggle-link">Sign Up</span></p>
+              </div>
+
+              <!-- Sign Up Form -->
+              <div id="signup-form" style="display: none;">
+                <div class="input-wrapper">
+                  <input type="email" id="signup-email" placeholder="Email Address" />
+                  <span class="focus-border"></span>
+                </div>
+                <div class="input-wrapper">
+                  <input type="password" id="signup-password" placeholder="Create Password" />
+                  <span class="focus-border"></span>
+                </div>
+                <button id="signup-btn" class="btn-ghost magnetic" style="width: 100%; margin-top: 1rem;">Sign Up</button>
+                <p class="auth-toggle-text">Already have an account? <span id="toggle-to-signin" class="toggle-link">Sign In</span></p>
+              </div>
+
+            </div>
+          
+          <div id="auth-message" class="auth-msg"></div>
+
+          <!-- Unlocked Intel -->
+          <div id="contact-info" class="unlocked-data" style="display: none;">
+            <h3 class="granted-text">ACCESS GRANTED</h3>
+            <p>Direct communication line opened.</p>
+            <a href="mailto:jmegraphix.services@gmail.com" class="direct-link">jmegraphix.services@gmail.com</a>
+            <div class="scanning-line"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2026 J'Me Graphix. Built for the future.</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
