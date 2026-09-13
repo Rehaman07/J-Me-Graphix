@@ -151,6 +151,66 @@ body {
   gap: var(--space-md);
 }
 
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  z-index: 101;
+  position: relative;
+}
+.mobile-menu-btn .bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(3, 3, 3, 0.95);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    clip-path: circle(0px at calc(100% - 40px) 40px);
+    transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 99;
+  }
+  
+  .nav-menu.active {
+    clip-path: circle(150% at calc(100% - 40px) 40px);
+  }
+  
+  .mobile-menu-btn.active .bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  .mobile-menu-btn.active .bar:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+  
+  /* Ensure mix-blend-mode doesn't hide text against the dark menu bg */
+  .elite-nav.menu-open {
+    mix-blend-mode: normal;
+  }
+}
+
 .nav-link {
   color: var(--text-primary);
   text-decoration: none;
