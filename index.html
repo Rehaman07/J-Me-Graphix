@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>J'Me Graphix | 1Cr Digital Architecture</title>
+  <meta name="description" content="J'Me Graphix engineers bold digital identities, growth systems, software, and AI experiences for ambitious brands." />
+  <meta property="og:title" content="J'Me Graphix | 1Cr Digital Architecture" />
+  <meta property="og:description" content="We turn attention into measurable growth through bold digital strategy, design, and technology." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./logo.png" />
   
   <!-- Fontshare: Clash Display & Satoshi -->
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
@@ -28,12 +33,12 @@
 
       <!-- Navigation -->
       <nav class="elite-nav mix-blend">
-        <div class="logo-wrapper magnetic">
+        <a class="logo-wrapper magnetic" href="#home" aria-label="J'Me Graphix home">
           <img src="./logo.png" alt="J'Me Graphix" class="logo-icon" />
-          <div class="logo-text">J'ME<br>GRAPHIX</div>
-        </div>
+          <span class="logo-text">J'ME<br>GRAPHIX</span>
+        </a>
 
-        <button class="mobile-menu-btn magnetic" id="mobile-menu-btn" aria-label="Toggle menu">
+        <button type="button" class="mobile-menu-btn magnetic" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
           <span class="bar"></span>
           <span class="bar"></span>
         </button>
@@ -53,7 +58,7 @@
             <div class="mask-line"><span class="reveal-text text-glass">DIGITAL</span></div>
             <div class="mask-line"><span class="reveal-text">FUTURES.</span></div>
           </h1>
-          <p class="hero-sub gs-fade-up">Award-winning engineering & design.</p>
+          <p class="hero-sub gs-fade-up">We turn attention into measurable growth.</p>
         </div>
       </section>
 
@@ -66,6 +71,11 @@
           <div class="bento-card bento-lg gs-scale-up">
             <div class="bento-glow color-green"></div>
             <div class="bento-content">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="bento-icon">
+                <path d="M12 2L2 7l10 5 10-5-10-5Z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
               <h3>Brand Architecture</h3>
               <p>Striking visual identities crafted to dominate markets. We don't just design; we engineer brand perception.</p>
             </div>
@@ -75,6 +85,11 @@
           <div class="bento-card bento-sm gs-scale-up">
             <div class="bento-glow color-orange"></div>
             <div class="bento-content">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="bento-icon">
+                <path d="M3 3v18h18"/>
+                <path d="m19 9-5 5-4-4-3 3"/>
+                <path d="M15 9h4v4"/>
+              </svg>
               <h3>Growth Marketing</h3>
               <p>Algorithmic dominance through hyper-targeted digital campaigns.</p>
             </div>
@@ -84,6 +99,18 @@
           <div class="bento-card bento-sm gs-scale-up">
             <div class="bento-glow color-blue"></div>
             <div class="bento-content">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="bento-icon">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                <path d="M9 9h6v6H9z"/>
+                <path d="M9 1V4"/>
+                <path d="M15 1V4"/>
+                <path d="M9 20V23"/>
+                <path d="M15 20V23"/>
+                <path d="M20 9H23"/>
+                <path d="M20 14H23"/>
+                <path d="M1 9H4"/>
+                <path d="M1 14H4"/>
+              </svg>
               <h3>Software Systems</h3>
               <p>Scalable, 1Cr-tier web applications built for speed and perfection.</p>
             </div>
@@ -93,6 +120,13 @@
           <div class="bento-card bento-wide gs-scale-up">
             <div class="bento-glow color-gradient"></div>
             <div class="bento-content">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="bento-icon">
+                <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                <path d="M20 3v4"/>
+                <path d="M22 5h-4"/>
+                <path d="M4 17v2"/>
+                <path d="M5 18H3"/>
+              </svg>
               <h3>AI Incubation Labs</h3>
               <p>Empowering minds with bleeding-edge Generative AI and prompt engineering workshops.</p>
             </div>
@@ -119,7 +153,7 @@
 
           <div id="auth-flow">
             <!-- Google Auth -->
-            <button id="google-auth-btn" class="btn-google magnetic">
+            <button type="button" id="google-auth-btn" class="btn-google magnetic">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.16v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -137,28 +171,32 @@
               <!-- Sign In Form -->
               <div id="signin-form">
                 <div class="input-wrapper">
-                  <input type="email" id="signin-email" placeholder="Email Address" />
+                  <label class="sr-only" for="signin-email">Email Address</label>
+                  <input type="email" id="signin-email" placeholder="Email Address" autocomplete="email" required />
                   <span class="focus-border"></span>
                 </div>
                 <div class="input-wrapper">
-                  <input type="password" id="signin-password" placeholder="Password" />
+                  <label class="sr-only" for="signin-password">Password</label>
+                  <input type="password" id="signin-password" placeholder="Password" autocomplete="current-password" required />
                   <span class="focus-border"></span>
                 </div>
-                <button id="signin-btn" class="btn-elite magnetic" style="width: 100%; margin-top: 1rem;">Sign In</button>
+                <button type="button" id="signin-btn" class="btn-elite magnetic" style="width: 100%; margin-top: 1rem;">Sign In</button>
                 <p class="auth-toggle-text">Don't have an account? <span id="toggle-to-signup" class="toggle-link">Sign Up</span></p>
               </div>
 
               <!-- Sign Up Form -->
               <div id="signup-form" style="display: none;">
                 <div class="input-wrapper">
-                  <input type="email" id="signup-email" placeholder="Email Address" />
+                  <label class="sr-only" for="signup-email">Email Address</label>
+                  <input type="email" id="signup-email" placeholder="Email Address" autocomplete="email" required />
                   <span class="focus-border"></span>
                 </div>
                 <div class="input-wrapper">
-                  <input type="password" id="signup-password" placeholder="Create Password" />
+                  <label class="sr-only" for="signup-password">Create Password</label>
+                  <input type="password" id="signup-password" placeholder="Create Password" autocomplete="new-password" minlength="6" required />
                   <span class="focus-border"></span>
                 </div>
-                <button id="signup-btn" class="btn-ghost magnetic" style="width: 100%; margin-top: 1rem;">Sign Up</button>
+                <button type="button" id="signup-btn" class="btn-ghost magnetic" style="width: 100%; margin-top: 1rem;">Sign Up</button>
                 <p class="auth-toggle-text">Already have an account? <span id="toggle-to-signin" class="toggle-link">Sign In</span></p>
               </div>
 
@@ -179,7 +217,7 @@
   </div>
 
   <!-- New Full-Screen Contact Page -->
-  <section id="contact-page" class="contact-page-overlay">
+  <section id="contact-page" class="contact-page-overlay" aria-hidden="true" data-lenis-prevent>
     <div class="contact-bg-glow"></div>
     <div class="contact-content">
       <div class="contact-header">
@@ -191,19 +229,51 @@
       </div>
 
       <div class="contact-grid">
-        <div class="contact-info-card contact-fade">
-          <h3>Direct Line</h3>
-          <a href="mailto:jmegraphix.services@gmail.com" class="magnetic-text magnetic">jmegraphix.services@gmail.com</a>
+        <div class="contact-info-card contact-fade contact-connect-card">
+          <h3>Direct Communications</h3>
+          <div class="contact-actions" aria-label="Direct contact options">
+            <a href="mailto:jmegraphix.services@gmail.com" class="contact-action magnetic" aria-label="Email J'Me Graphix" title="Email J'Me Graphix">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18a1.5 1.5 0 0 1 1.5 1.5v10A1.5 1.5 0 0 1 21 18.5H3A1.5 1.5 0 0 1 1.5 17V7A1.5 1.5 0 0 1 3 5.5Zm0 2v.5l9 5.65L21 8V7.5H3Zm18 9V10.35l-8.47 5.32a1 1 0 0 1-1.06 0L3 10.35v6.15h18Z"/></svg>
+              <span class="sr-only">Email</span>
+            </a>
+            <a href="tel:+919493229319" class="contact-action magnetic" aria-label="Call J'Me Graphix" title="Call J'Me Graphix">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1v3.49a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+              <span class="sr-only">Call</span>
+            </a>
+          </div>
+          <p class="contact-direct-detail">jmegraphix.services@gmail.com<br />+91 9493229319</p>
+          <div class="contact-divider" aria-hidden="true"></div>
+          <h3>Digital Presence</h3>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/" class="social-btn magnetic" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.1H3V21h3.5V8.1ZM4.75 3A2.05 2.05 0 1 0 4.75 7.1 2.05 2.05 0 0 0 4.75 3ZM21 13.6c0-3.88-2.07-5.69-4.84-5.69a4.18 4.18 0 0 0-3.8 2.09V8.1H8.86V21h3.5v-6.38c0-1.68.32-3.3 2.4-3.3 2.05 0 2.07 1.91 2.07 3.41V21H21v-7.4Z"/></svg>
+            </a>
+            <a href="https://wa.me/919493229319" class="social-btn magnetic" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.86 11.86 0 0 0 12.05 0C5.5 0 .17 5.33.17 11.89c0 2.1.55 4.15 1.6 5.96L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.88-5.33 11.88-11.89 0-3.18-1.23-6.16-3.43-8.41ZM12.05 21.8h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.23-.38a9.86 9.86 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.9-9.9a9.82 9.82 0 0 1 7.01 2.91 9.86 9.86 0 0 1 2.9 7.02c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.42c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.21 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.61.7.22 1.34.19 1.85.12.56-.08 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+            </a>
+            <a href="https://x.com/JMe_Graphix" class="social-btn magnetic" target="_blank" rel="noreferrer" aria-label="X @JMe_Graphix">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.37l7.24-8.28L2.8 2h6.4l4.42 5.84L18.9 2Zm-1.09 17.8h1.72L8.27 4.08H6.42L17.81 19.8Z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/jme_graphix/" class="social-btn magnetic" target="_blank" rel="noreferrer" aria-label="Instagram @jme_graphix">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5ZM17.25 6.25a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg>
+            </a>
+            <a href="https://discord.gg/U9eKwcZpN" class="social-btn magnetic" target="_blank" rel="noreferrer" aria-label="Join the J'Me Graphix Discord">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.54 4.35A16.7 16.7 0 0 0 15.4 3l-.5 1.02a15.3 15.3 0 0 0-5.8 0L8.6 3a16.7 16.7 0 0 0-4.14 1.35C1.84 8.26 1.13 12.07 1.49 15.83a16.7 16.7 0 0 0 5.1 2.58l1.24-1.68c-.68-.25-1.33-.57-1.94-.95l.48-.36c3.74 1.73 7.8 1.73 11.5 0l.48.36c-.61.38-1.26.7-1.95.95l1.24 1.68a16.7 16.7 0 0 0 5.1-2.58c.43-4.36-.73-8.14-3.2-11.48ZM8.77 14.1c-1.13 0-2.06-1.03-2.06-2.3s.9-2.3 2.06-2.3 2.07 1.03 2.06 2.3c0 1.27-.91 2.3-2.06 2.3Zm6.46 0c-1.13 0-2.06-1.03-2.06-2.3s.9-2.3 2.06-2.3 2.07 1.03 2.06 2.3c0 1.27-.91 2.3-2.06 2.3Z"/></svg>
+            </a>
+          </div>
         </div>
-        
+
         <div class="contact-info-card contact-fade">
-          <h3>HQ</h3>
+          <h3>Operations</h3>
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span>Currently Operating Virtually</span>
+          </div>
           <p>Global Digital Space</p>
-          <p>Coordinates: 1Cr Architecture</p>
         </div>
       </div>
 
-      <button id="return-btn" class="btn-ghost contact-fade magnetic">Return to Surface</button>
+      <button type="button" id="return-btn" class="btn-ghost contact-fade magnetic">Return to Surface</button>
     </div>
   </section>
 

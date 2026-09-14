@@ -76,10 +76,11 @@ const initWebGL = () => {
   });
 
   // Animation Loop
-  const clock = new THREE.Clock();
+  const timer = new THREE.Timer();
 
-  const tick = () => {
-    const elapsedTime = clock.getElapsedTime();
+  const tick = (timestamp) => {
+    timer.update(timestamp);
+    const elapsedTime = timer.getElapsed();
 
     // Rotate slowly
     particlesMesh.rotation.y = -0.05 * elapsedTime;
@@ -95,7 +96,7 @@ const initWebGL = () => {
     renderer.render(scene, camera);
     window.requestAnimationFrame(tick);
   };
-  tick();
+  window.requestAnimationFrame(tick);
 
   // Resize handler
   window.addEventListener('resize', () => {
@@ -108,12 +109,15 @@ const initWebGL = () => {
 // ==========================================
 // 2. SMOOTH SCROLL & ADVANCED GSAP
 // ==========================================
+let smoothScroll;
+
 const initScroll = () => {
   const lenis = new Lenis({
     duration: 1.5,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
   });
+  smoothScroll = lenis;
 
   lenis.on('scroll', ScrollTrigger.update);
 
@@ -222,6 +226,13 @@ try {
 }
 
 const unlockContactInfo = () => {
+  smoothScroll?.stop();
+  document.body.classList.add('contact-open');
+
+  const contactPage = document.getElementById('contact-page');
+  if (contactPage) contactPage.scrollTop = 0;
+  contactPage?.setAttribute('aria-hidden', 'false');
+
   // Master Timeline for "Closing Space" and "Zoom In" Transition
   const tl = gsap.timeline({
     onComplete: () => {
@@ -261,8 +272,6 @@ const unlockContactInfo = () => {
   }
 
   // 3. Reveal Contact Page (Award Winning Animations)
-  const contactPage = document.getElementById('contact-page');
-  
   tl.set(contactPage, { pointerEvents: 'auto' }, 1.5)
     .to(contactPage, {
       opacity: 1,
@@ -293,6 +302,7 @@ const unlockContactInfo = () => {
 const returnToSurface = () => {
   const tl = gsap.timeline();
   const contactPage = document.getElementById('contact-page');
+  contactPage?.setAttribute('aria-hidden', 'true');
   
   tl.set(contactPage, { pointerEvents: 'none' })
     .to(contactPage, { opacity: 0, duration: 0.8, ease: 'power2.in' }, 0);
@@ -304,6 +314,10 @@ const returnToSurface = () => {
 
   tl.to('#smooth-wrapper', { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power3.out' }, 0.5);
   tl.to('.elite-nav', { y: '0%', opacity: 1, duration: 1, ease: 'power3.out' }, 0.8);
+  tl.call(() => {
+    document.body.classList.remove('contact-open');
+    smoothScroll?.start();
+  }, [], 0.8);
 };
 
 const setupAuth = () => {
@@ -406,9 +420,11 @@ const initMobileMenu = () => {
   if (!menuBtn || !navMenu) return;
 
   const toggleMenu = () => {
-    menuBtn.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    eliteNav.classList.toggle('menu-open');
+    const isOpen = !navMenu.classList.contains('active');
+    menuBtn.classList.toggle('active', isOpen);
+    navMenu.classList.toggle('active', isOpen);
+    eliteNav.classList.toggle('menu-open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
   };
 
   menuBtn.addEventListener('click', toggleMenu);
