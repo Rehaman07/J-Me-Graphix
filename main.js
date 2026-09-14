@@ -21,6 +21,8 @@ gsap.registerPlugin(ScrollTrigger);
 // ==========================================
 // 1. WEBGL HERO CANVAS (The "Jaw-Drop")
 // ==========================================
+let webglCamera, webglParticles;
+
 const initWebGL = () => {
   const canvas = document.querySelector('#webgl-canvas');
   if (!canvas) return;
@@ -55,6 +57,9 @@ const initWebGL = () => {
   scene.add(particlesMesh);
 
   camera.position.z = 3;
+  
+  webglCamera = camera;
+  webglParticles = particlesMesh;
 
   // Mouse Interactivity
   let mouseX = 0;
@@ -175,8 +180,12 @@ const initCursor = () => {
     el.addEventListener('mouseleave', () => ring.classList.remove('hover-active'));
   });
 
-  // Magnetic Pull Math
-  document.querySelectorAll('.magnetic').forEach(btn => {
+  // Magnetic Pull Math - Refactored to a reusable function
+  initMagneticButtons(document.querySelectorAll('.magnetic'));
+};
+
+const initMagneticButtons = (elements) => {
+  elements.forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
       const rect = btn.getBoundingClientRect();
       const h = rect.width / 2;
@@ -212,20 +221,89 @@ try {
   console.warn("Firebase config error", error);
 }
 
-let confirmationResult = null;
-
 const unlockContactInfo = () => {
-  document.getElementById('auth-flow').style.display = 'none';
-  document.querySelector('.terminal-title').style.display = 'none';
-  document.querySelector('.terminal-sub').style.display = 'none';
+  // Master Timeline for "Closing Space" and "Zoom In" Transition
+  const tl = gsap.timeline({
+    onComplete: () => {
+      // Re-initialize magnetic pull on new elements
+      initMagneticButtons(document.querySelectorAll('#contact-page .magnetic'));
+    }
+  });
+
+  // 1. Closing Space Animation (Collapse current UI)
+  tl.to('#smooth-wrapper', {
+    scale: 0.9,
+    opacity: 0,
+    filter: 'blur(10px)',
+    duration: 1.2,
+    ease: 'power3.inOut'
+  }, 0);
+
+  tl.to('.elite-nav', {
+    y: '-100%',
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power3.in'
+  }, 0);
+
+  // 2. Zoom In Space Animation (WebGL Camera flies forward)
+  if (webglCamera && webglParticles) {
+    tl.to(webglCamera.position, {
+      z: -5, // Fly through the particles
+      duration: 2.5,
+      ease: 'power4.inOut'
+    }, 0);
+    
+    tl.to(webglParticles.material, {
+      opacity: 0.2, // dim the particles a bit
+      duration: 2,
+    }, 0.5);
+  }
+
+  // 3. Reveal Contact Page (Award Winning Animations)
+  const contactPage = document.getElementById('contact-page');
   
-  const contactInfo = document.getElementById('contact-info');
-  contactInfo.style.display = 'block';
-  
-  gsap.fromTo(contactInfo, 
-    { opacity: 0, y: 20 }, 
-    { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }
+  tl.set(contactPage, { pointerEvents: 'auto' }, 1.5)
+    .to(contactPage, {
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out'
+    }, 1.5);
+
+  // Reveal Text
+  tl.fromTo('.contact-reveal .reveal-inner', 
+    { y: '110%', rotate: 5 }, 
+    { y: '0%', rotate: 0, duration: 1.2, stagger: 0.15, ease: 'power4.out' },
+    1.8
   );
+
+  // Fade up other elements
+  tl.fromTo('.contact-fade',
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out' },
+    2.2
+  );
+
+  // Setup Return Button
+  document.getElementById('return-btn').addEventListener('click', () => {
+    returnToSurface();
+  });
+};
+
+const returnToSurface = () => {
+  const tl = gsap.timeline();
+  const contactPage = document.getElementById('contact-page');
+  
+  tl.set(contactPage, { pointerEvents: 'none' })
+    .to(contactPage, { opacity: 0, duration: 0.8, ease: 'power2.in' }, 0);
+
+  if (webglCamera && webglParticles) {
+    tl.to(webglCamera.position, { z: 3, duration: 2, ease: 'power4.inOut' }, 0);
+    tl.to(webglParticles.material, { opacity: 0.6, duration: 1.5 }, 0.5);
+  }
+
+  tl.to('#smooth-wrapper', { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power3.out' }, 0.5);
+  tl.to('.elite-nav', { y: '0%', opacity: 1, duration: 1, ease: 'power3.out' }, 0.8);
 };
 
 const setupAuth = () => {
@@ -316,9 +394,38 @@ const setupAuth = () => {
   });
 };
 
+// ==========================================
+// 5. MOBILE MENU
+// ==========================================
+const initMobileMenu = () => {
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const navMenu = document.getElementById('nav-menu');
+  const eliteNav = document.querySelector('.elite-nav');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  if (!menuBtn || !navMenu) return;
+
+  const toggleMenu = () => {
+    menuBtn.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    eliteNav.classList.toggle('menu-open');
+  };
+
+  menuBtn.addEventListener('click', toggleMenu);
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (navMenu.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initWebGL();
   initCursor();
   initScroll();
   setupAuth();
+  initMobileMenu();
 });

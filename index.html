@@ -166,13 +166,7 @@
           
           <div id="auth-message" class="auth-msg"></div>
 
-          <!-- Unlocked Intel -->
-          <div id="contact-info" class="unlocked-data" style="display: none;">
-            <h3 class="granted-text">ACCESS GRANTED</h3>
-            <p>Direct communication line opened.</p>
-            <a href="mailto:jmegraphix.services@gmail.com" class="direct-link">jmegraphix.services@gmail.com</a>
-            <div class="scanning-line"></div>
-          </div>
+          <!-- Unlocked intel removed in favor of full-page transition -->
         </div>
       </section>
 
@@ -183,6 +177,35 @@
 
     </div>
   </div>
+
+  <!-- New Full-Screen Contact Page -->
+  <section id="contact-page" class="contact-page-overlay">
+    <div class="contact-bg-glow"></div>
+    <div class="contact-content">
+      <div class="contact-header">
+        <h2 class="contact-title contact-reveal">
+          <div class="mask-line"><span class="reveal-inner">CONNECTION</span></div>
+          <div class="mask-line"><span class="reveal-inner text-glass">ESTABLISHED.</span></div>
+        </h2>
+        <p class="contact-subtitle contact-fade">Welcome to the inner circle.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card contact-fade">
+          <h3>Direct Line</h3>
+          <a href="mailto:jmegraphix.services@gmail.com" class="magnetic-text magnetic">jmegraphix.services@gmail.com</a>
+        </div>
+        
+        <div class="contact-info-card contact-fade">
+          <h3>HQ</h3>
+          <p>Global Digital Space</p>
+          <p>Coordinates: 1Cr Architecture</p>
+        </div>
+      </div>
+
+      <button id="return-btn" class="btn-ghost contact-fade magnetic">Return to Surface</button>
+    </div>
+  </section>
 
   <script type="module" src="./main.js"></script>
 </body>

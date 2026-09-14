@@ -577,3 +577,122 @@ body {
   color: var(--text-primary);
   text-decoration: underline;
 }
+
+/* =========================================
+   CONTACT PAGE OVERLAY (SPA TRANSITION)
+   ========================================= */
+.contact-page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 150; /* Above nav and smooth wrapper */
+  pointer-events: none;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-md);
+  /* The background will be handled mostly by the zoomed WebGL, but we add a dark gradient overlay */
+  background: radial-gradient(circle at center, transparent 0%, rgba(3, 3, 3, 0.95) 100%);
+}
+
+.contact-bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(13, 215, 28, 0.15) 0%, transparent 60%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 151;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 152;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-header {
+  margin-bottom: var(--space-lg);
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 1.5rem + 8vw, 8rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.contact-subtitle {
+  font-size: var(--text-xl);
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.contact-grid {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: var(--space-lg);
+}
+
+.contact-info-card {
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+  text-align: left;
+  transition: border-color 0.4s, transform 0.4s;
+}
+
+.contact-info-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.contact-info-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.contact-info-card p,
+.contact-info-card a {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: block;
+}
+
+.magnetic-text {
+  display: inline-block;
+}
+
+/* Base states for GSAP animation */
+.reveal-inner {
+  display: block;
+}
+
